@@ -94,3 +94,31 @@ void enviarDados(int batimentos, float oximetria, float ax, float ay, float az) 
     Serial.println("WiFi não conectado!");
   }
 }
+
+// ---------- SETUP ----------
+void setup() {
+  Serial.begin(115200);
+  conectarWiFi();
+  inicializarMPU();
+}
+
+// ---------- LOOP ----------
+void loop() {
+  // Lê sensores
+  int batimentos = lerBatimentos();
+  float oximetria = lerOximetria();
+  float ax, ay, az;
+  lerMPU(ax, ay, az);
+
+  // Mostra no Serial
+  Serial.print("Batimentos: "); Serial.print(batimentos);
+  Serial.print(" | Oximetria: "); Serial.print(oximetria);
+  Serial.print(" | Acc X: "); Serial.print(ax);
+  Serial.print(" Y: "); Serial.print(ay);
+  Serial.print(" Z: "); Serial.println(az);
+
+  // Envia ao ThingSpeak
+  enviarDados(batimentos, oximetria, ax, ay, az);
+
+  delay(15000); // envia a cada 15 segundos
+}
