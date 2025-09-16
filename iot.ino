@@ -20,3 +20,17 @@ const int pinOximetro = 35;   // simula oximetria
 
 // ---------- OBJETO MPU6050 ----------
 Adafruit_MPU6050 mpu;
+
+// ---------- FUNÇÃO DE CONEXÃO WIFI ----------
+void conectarWiFi() {
+  Serial.print("Conectando ao WiFi...");
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("Conectado!");
+  Serial.print("IP do ESP32: ");
+  Serial.println(WiFi.localIP());
+}
