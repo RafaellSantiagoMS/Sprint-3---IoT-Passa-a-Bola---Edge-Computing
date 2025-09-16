@@ -66,3 +66,31 @@ float lerOximetria() {
   int val = analogRead(pinOximetro);        // 0 - 4095
   return map(val, 0, 4095, 800, 1000) / 10.0; // converte para 95.0 - 100.0
 }
+
+// ---------- FUNÇÃO PARA ENVIAR DADOS AO THINGSPEAK ----------
+void enviarDados(int batimentos, float oximetria, float ax, float ay, float az) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+    String url = String(THINGSPEAK_HOST) + "?api_key=" + THINGSPEAK_API_KEY +
+                 "&field1=" + String(batimentos) +
+                 "&field2=" + String(oximetria) +
+                 "&field3=" + String(ax) +
+                 "&field4=" + String(ay) +
+                 "&field5=" + String(az);
+
+    http.begin(url);
+    int httpCode = http.GET(); // envia GET
+
+    if (httpCode > 0) {
+      Serial.print("Dados enviados! Código: ");
+      Serial.println(httpCode);
+    } else {
+      Serial.println("Erro ao enviar dados");
+    }
+
+    http.end();
+  } else {
+    Serial.println("WiFi não conectado!");
+  }
+}
