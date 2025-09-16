@@ -55,3 +55,14 @@ void lerMPU(float &ax, float &ay, float &az) {
   ay = a.acceleration.y;
   az = a.acceleration.z;
 }
+
+// ---------- FUNÇÃO PARA LER DADOS DOS POTENCIÔMETROS ----------
+int lerBatimentos() {
+  int val = analogRead(pinBatimentos);       // 0 - 4095
+  return map(val, 0, 4095, 40, 250);        // converte para batimentos
+}
+
+float lerOximetria() {
+  int val = analogRead(pinOximetro);        // 0 - 4095
+  return map(val, 0, 4095, 800, 1000) / 10.0; // converte para 95.0 - 100.0
+}
