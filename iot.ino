@@ -34,3 +34,24 @@ void conectarWiFi() {
   Serial.print("IP do ESP32: ");
   Serial.println(WiFi.localIP());
 }
+
+// ---------- FUNÇÃO PARA INICIALIZAR MPU6050 ----------
+void inicializarMPU() {
+  if (!mpu.begin()) {
+    Serial.println("Erro ao inicializar MPU6050!");
+    while (1) {
+      delay(100);
+    }
+  }
+  Serial.println("MPU6050 inicializado com sucesso!");
+}
+
+// ---------- FUNÇÃO PARA LER DADOS DO MPU6050 ----------
+void lerMPU(float &ax, float &ay, float &az) {
+  sensors_event_t a, g, temp;
+  mpu.getEvent(&a, &g, &temp);
+
+  ax = a.acceleration.x;
+  ay = a.acceleration.y;
+  az = a.acceleration.z;
+}
