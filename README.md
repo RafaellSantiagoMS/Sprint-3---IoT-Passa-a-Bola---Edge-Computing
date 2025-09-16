@@ -53,7 +53,7 @@ Este projeto desenvolve a primeira versão de uma arquitetura IoT para o desafio
 ### Software
 - Arduino IDE  
 - Bibliotecas: `WiFi.h`, `HTTPClient.h`, `Adafruit_MPU6050`  
-- Conta no [ThingSpeak][https://thingspeak.com](https://thingspeak.mathworks.com/channels/3071731)
+- Página utilizada no ThingSpeak [https://thingspeak.com](https://thingspeak.mathworks.com/channels/3071731]
 
 ---
 
