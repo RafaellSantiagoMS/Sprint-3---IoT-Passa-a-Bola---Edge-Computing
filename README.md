@@ -11,7 +11,7 @@
 
 ## 🎯 Descrição do Projeto
 
-Este projeto desenvolve a primeira versão de uma arquitetura IoT para o desafio **"Passa a Bola"**, com foco em **monitoramento em tempo real** de sinais vitais e movimentação. Utilizamos um ESP32 com sensores simulados (potenciômetros e acelerômetro) que enviam dados para a nuvem via **HTTP**.
+Este projeto desenvolve a primeira versão de uma arquitetura IoT para o desafio **"Passa a Bola"**, com foco em **monitoramento em tempo real** de sinais vitais e movimentação. Utilizamos um ESP32 com sensores simulados (potenciômetros e acelerômetro) que enviam dados para a nuvem via **HTTP**. 
 
 ---
 
@@ -32,9 +32,6 @@ Este projeto desenvolve a primeira versão de uma arquitetura IoT para o desafio
 (HTTP)
 ↑
 [ESP32 com sensores]
-
-yaml
-Copiar código
 
 ### Componentes
 
@@ -71,8 +68,8 @@ Copiar código
 
 ## 🎥 Vídeo Explicativo (Entrega 1)
 
-> 📺 **Link para o vídeo (YouTube, Vimeo, etc.):**  
-> [Cole o link do vídeo aqui]
+> 📺 **Link para o vídeo (YouTube):**  
+> [https://youtu.be/FhgQ1B5FJV4]
 
 O vídeo cobre:
 - Aplicação da IoT no desafio
@@ -82,3 +79,6 @@ O vídeo cobre:
 - Demonstração da coleta e envio de dados
 
 ---
+
+> **Link para o Wokwi**
+> [https://wokwi.com/projects/441836157562785793]
